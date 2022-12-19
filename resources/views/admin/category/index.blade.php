@@ -34,6 +34,7 @@
                                     <th scope="col">Category Name</th>
                                     <th scope="col">User</th>
                                     <th scope="col">Created At</th>
+                                    <th scope="col">Actions</th>
                                 </tr>
                             </thead>
                             <tbody>
@@ -41,14 +42,19 @@
 
 
 
-                            @foreach($categories as $categories)
+                            @foreach($categories as $category)
 
 
                                 <tr>
-                                    <th scope="row">{{$categories->id}}</th>
-                                    <td>{{$categories->category_name}}</td>
-                                    <td>{{$categories->user_id}}</td>
-                                    <td>{{$categories->created_at->diffForHumans()}}</td>
+                                    <th scope="row">{{$category->id}}</th>
+                                    <td>{{$category->category_name}}</td>
+                                    <td>{{$category->user->name}}</td>
+                                    <td>{{$category->created_at->diffForHumans()}}</td>
+                                    <td>
+
+                                    <a href="{{ url('category/edit/'.$category->id)}}" class="btn btn-secondary">Edit</a>
+                                    <a href="" class="btn btn-danger">Danger</a>
+                                    </td>
                                 </tr>
 
                                 @endforeach
@@ -56,6 +62,8 @@
 
                             </tbody>
                         </table>
+
+                        {{$categories->links()}}
                         
                     </div>
                 </div>

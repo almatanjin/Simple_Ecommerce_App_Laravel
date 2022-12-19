@@ -1,11 +1,11 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\Api;
 
-use App\Models\Category;
+use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 
-class CategoryController extends Controller
+class UserShowController extends Controller
 {
     /**
      * Handle the incoming request.
@@ -15,8 +15,6 @@ class CategoryController extends Controller
      */
     public function __invoke(Request $request)
     {
-
-        $categories = Category::latest()->paginate(5);
-        return view('admin.category.index',['categories'=>$categories]);
+        //
     }
 }

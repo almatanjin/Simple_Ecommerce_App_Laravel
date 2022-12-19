@@ -1,7 +1,9 @@
 <?php
 
 use App\Http\Controllers\CategoryController;
+use App\Http\Controllers\EditCategoryController;
 use App\Http\Controllers\StoreCategoryController;
+use App\Http\Controllers\UpdateCategoryController;
 use App\Http\Controllers\UserController;
 use App\Models\User;
 use Illuminate\Support\Facades\Route;
@@ -37,3 +39,5 @@ Route::middleware([
 });
 Route::get("/category/all",CategoryController::class)->name('category');
 Route::post("/category/all", StoreCategoryController::class)->name('store.category');
+Route::get('/category/edit/{id}', EditCategoryController::class)->name('edit.category');
+Route::get('/category/edit/{id}', UpdateCategoryController::class)->name('update.category');

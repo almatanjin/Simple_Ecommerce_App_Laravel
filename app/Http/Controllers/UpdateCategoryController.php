@@ -2,10 +2,9 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Category;
 use Illuminate\Http\Request;
 
-class CategoryController extends Controller
+class UpdateCategoryController extends Controller
 {
     /**
      * Handle the incoming request.
@@ -15,8 +14,6 @@ class CategoryController extends Controller
      */
     public function __invoke(Request $request)
     {
-
-        $categories = Category::latest()->paginate(5);
-        return view('admin.category.index',['categories'=>$categories]);
+        //
     }
 }
